@@ -1,0 +1,10 @@
+.error{
+    background: radial-gradient(178.94% 106.41% at 26.42% 106.41%,#f90303e6 0,hsla(10, 71%, 61%, 0.676) 71.88%),#fff;
+    border-radius: 23px;
+    transition: all .8s cubic-bezier(.15,.83,.66,1);
+    transition: all .2s ease-in-out;
+    width: 40%;
+    box-shadow: 0px 0px 30px rgb(0, 0, 0);
+    margin-bottom: 10%;
+    color: white;
+}
