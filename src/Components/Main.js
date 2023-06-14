@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 
+
+/* import Translator from "./Translator" */
 import ContainerInput from "./ContainerInput";
 import Card from "./Card";
 import Error from "./Error";
 import Button from "./Button";
+
+
 
 import cbaImage from '../img/cba.jpg';
 
 export default function Main() {
   const [temperatura, setTemperatura] = useState(false);
   const [ubi, setUbi] = useState("argentina");
-
   const [error, setError] = useState(false);
   const [capital, setCapital] = useState('');
   const [backgroundImage, setBackgroundImage] = useState('');
@@ -44,7 +47,7 @@ export default function Main() {
 
         const json = await response.json();
 
-        const newBackgroundImage = json.results[0]?.links?.download || '';
+        const newBackgroundImage = json.results[0]?.links?.download || ''; /** ? */
 
         setBackgroundImage(newBackgroundImage);
       }
@@ -57,8 +60,14 @@ export default function Main() {
     getBackgroundImage()
   }, [ubi]);
 
+
+ 
+
   return (
     <div className="app" style={{backgroundImage: backgroundImage ? `url(${backgroundImage})` : cbaImage}}>
+      
+      {/** <Translator/> */}
+    
       <ContainerInput setError={setError} setUbi={setUbi} />
 
       {error ? <Error ubi={ubi}/> :""}
