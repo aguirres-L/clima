@@ -72,7 +72,7 @@ export default function Main() {
 
       {error ? <Error ubi={ubi}/> :""}
       
-      {error? "" :<Card ubi={ubi} name={capital} temp={temperatura?temperatura:"0"} />}
+      {error? "" :<Card ubi={ubi} setTemperatura={setTemperatura} name={capital} temp={temperatura?temperatura:"0"} />}
 
     <Button setUbi={setUbi} />
     </div>
