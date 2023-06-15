@@ -1,35 +1,32 @@
 
-import { useState } from "react";
+import "./Csss/Translator.Css"
 
-export default function Translator(){
-    const [idioma, setIdioma] = useState("es");
-    const api_kay = "AIzaSyAShCKPc3Zer3JlW6Vn4P04xzxm6OgbAqM";
+export default function Translator({ setTraductor }) {
 
-    const getTranslation = async () => {
-        try {
-          const URL = `https://translation.googleapis.com/language/translate/v2?key=${api_kay}&q=Hello%20world&source=en&target=${idioma}`;
-          const res = await fetch(URL);
-          let json = await res.json();
-          console.log(json);
-          // Procesa la respuesta de la API de traducción según tus necesidades
-        } catch (error) {
-          console.log('Error en getTranslation:', error);
-        }
-      }
+  const handleOptionChange = (event) => {
+    console.log(event.target.value);
 
-    const handleOptionChange = (event) => {
-        const selectedValue = event.target.value;
-        setIdioma(selectedValue)
-        alert(`Seleccionaste ${selectedValue}`);
-        getTranslation()
-      };
+    if (event.target.value === "ES") {
+      console.log(`Traducir a Español`);
+      setTraductor(null);
+    }
 
-    return(
-        <div>
-        <select value={idioma} onChange={handleOptionChange} >
-          <option id="en" >EN</option>
-          <option id="es" >ES</option>
-        </select>
-      </div>
-    )
+    if (event.target.value === "EN") {
+      console.log(`Traducir a Ingles`);
+      setTraductor(true);
+    }
+  };
+
+  return (
+    <div  > 
+      <select  
+      style={{border:".1px white solid ",background: "rgb(17, 21, 19,0.3)",color:"white",borderRadius:"5px",boxShadow:"0px 0px 10px black"}} 
+      
+      onChange={handleOptionChange}>
+        <option id="en">ES</option>
+
+        <option id="es">EN</option>
+      </select>
+    </div>
+  );
 }
