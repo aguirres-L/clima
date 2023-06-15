@@ -86,6 +86,9 @@ body {
   width: 250px;
 }
 
+.hidden {
+  display: none;
+}
 
 .left-front {
   border-radius: 50% 50% 0 50%;
@@ -101,6 +104,7 @@ body {
 
 
 .left-front, .right-front {
+  /* background-color: #53799f; color para nubes oscruars  */
   background-color: #4c9beb;
   display: inline-block;
   z-index: 5;
@@ -118,14 +122,16 @@ body {
   animation:  2s infinite;
 }
 .sun {
-  background: linear-gradient(90deg,#fcbb04,#fffc00);
+  background: linear-gradient(90deg,#ecc116,#fffc00);
   border-radius: 60px;
   display: inline;
   height: 120px;
   position: absolute;
   width: 120px;
 }
-
+.moon{
+  background: linear-gradient(90deg,#3c3c3a,#cfcfc7);
+}
 
 .back {
   -webkit-animation: clouds 12s infinite;
@@ -177,9 +183,16 @@ body {
   position: absolute;
 }
 
+@media screen and (max-width: 800px){
+  .temp {
+    font-weight: 500;
+    font-size: 44px;
+  }
+  
+}
+
 .temp-scale {
   align-items: center;
-  background: rgba(0,0,0,.06);
   border-radius: 9px;
   bottom: 25px;
   display: flex;
